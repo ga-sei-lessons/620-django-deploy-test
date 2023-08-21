@@ -9,6 +9,7 @@ once finished.
 * ensure that you are in your virtual enviroment
 * install the [gunicorn](https://gunicorn.org/) package with `pip3 install gunicorn`
 * install [whitenoise](https://whitenoise.readthedocs.io/en/stable/django.html) with `pip3 install whitenoise`	
+* install `pip3 install dj-database-url`
 * setup [parts 1 + 2](https://whitenoise.readthedocs.io/en/stable/django.html) and then run `heroku run python manage.py collectstatic`
 * freeze your requirements `pip3 freeze > requirements.txt`
 * touch `Profile` and add the following:
