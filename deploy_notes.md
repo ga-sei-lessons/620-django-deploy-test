@@ -17,7 +17,7 @@ once finished.
 web: gunicorn yourappname.wsgi
 ```
 * add `venv` and `__pycache__/` to your `.gitignore`
-* set/add the follwing in `settings.py`:
+* set/add the follwing in `settings.py` ([here](https://github.com/ga-sei-lessons/620-django-deploy-test/blob/main/mysite/settings.py) is an example to reference if needed):
 ```python
 import dj_database_url
 PRODUCTION = 'PRODUCTION' in os.environ
