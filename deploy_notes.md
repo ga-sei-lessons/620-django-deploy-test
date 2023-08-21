@@ -22,10 +22,13 @@ web: gunicorn yourappname.wsgi
 import dj_database_url
 PRODUCTION = 'PRODUCTION' in os.environ
 ...
+SECRET_KEY = 're94qkxft_#0mq@1j-#t%g5i9^uvh@7y6z+(i0ku#q66ma*uar'
+if PRODUCTION:
+    SECRET_KEY = os.environ["SECRET_KEY"]
+...
+DEBUG = True
 if PRODUCTION:
     DEBUG = False
-else:
-    DEBUG = True
 ...
 ALLOWED_HOSTS = ['*',]
 ...
@@ -43,7 +46,7 @@ MIDDLEWARE = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'polls',
+        'NAME': '< your db name >',
     }
 }
 
@@ -55,7 +58,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR + "/staticfiles"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ```
-* git add, commit a push!
+* git add, commit and push!
 
 ## Config on heroku
 
@@ -66,11 +69,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 * `heroku git:remote -a < your heroku app name >` -- connect to app in cli
 * `heroku addons:create heroku-postgresql:mini` -- install postgres package
 * `heroku logs --tail` -- monitor deploy's terminal (open separate tab/pane)
-* `heroku config:set PRODUCTION=True` -- set config vars    
-* `heroku run python manage.py collectstatic` -- config static assets if needed
-* `heroku run python manage.py migrate` -- migrate db if needed
+* `heroku config:set PRODUCTION=True SECRET_KEY="some string"` -- set config vars
+* optionally run these manually if there is an issue with static assests/migrations 
+	* `heroku run python manage.py collectstatic` -- config static assets if needed
+	* `heroku run python manage.py migrate` -- migrate db if needed
 
 ## heroku cheatsheet:
+
 ```
 # run a command on the cloud
 heroku run < my command >
