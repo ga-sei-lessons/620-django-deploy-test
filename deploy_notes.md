@@ -20,7 +20,7 @@ web: gunicorn yourappname.wsgi
 * set/add the follwing in `settings.py`:
 ```python
 import dj_database_url
-PRODUCTION = PRODUCTION in os.environ
+PRODUCTION = 'PRODUCTION' in os.environ
 ...
 if PRODUCTION:
     DEBUG = False
@@ -65,6 +65,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 * `heroku addons:create heroku-postgresql:mini` -- install postgres package
 * `heroku config:set PGSSLMODE=no-verify` -- disable db ssl verifactaion
 * `heroku logs --tail` -- monitor deploy's terminal (open separate tab/pane)
+* `heroku config:set PRODUCTION=True` -- set config vars    
 * `heroku run python manage.py collectstatic` -- config static assets
 * `heroku run python manage.py migrate` -- migrate db 
 
