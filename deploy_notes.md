@@ -70,9 +70,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 * `heroku addons:create heroku-postgresql:mini` -- install postgres package
 * `heroku logs --tail` -- monitor deploy's terminal (open separate tab/pane)
 * `heroku config:set PRODUCTION=True SECRET_KEY="some string"` -- set config vars
-* optionally run these manually if there is an issue with static assests/migrations 
-	* `heroku run python manage.py collectstatic` -- config static assets if needed
-	* `heroku run python manage.py migrate` -- migrate db if needed
+* `heroku run python manage.py migrate` -- migrate db
+* `heroku pg:psql` -- check your prod db's shell for correct migration
+* `heroku run python manage.py collectstatic` -- config static assets if needed (if your static assets are borked)
 
 ## heroku cheatsheet:
 
