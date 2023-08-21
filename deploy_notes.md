@@ -51,6 +51,8 @@ if PRODUCTION:
     db_from_env = dj_database_url.config(conn_max_age=600)
     DATABASES['default'].update(db_from_env)
 ...
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR + "/staticfiles"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ```
 * git add, commit a push!
