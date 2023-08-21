@@ -65,9 +65,25 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 * `heroku login` -- login via browser
 * `heroku git:remote -a < your heroku app name >` -- connect to app in cli
 * `heroku addons:create heroku-postgresql:mini` -- install postgres package
-* `heroku config:set PGSSLMODE=no-verify` -- disable db ssl verifactaion
 * `heroku logs --tail` -- monitor deploy's terminal (open separate tab/pane)
 * `heroku config:set PRODUCTION=True` -- set config vars    
-* `heroku run python manage.py collectstatic` -- config static assets
-* `heroku run python manage.py migrate` -- migrate db 
+* `heroku run python manage.py collectstatic` -- config static assets if needed
+* `heroku run python manage.py migrate` -- migrate db if needed
+
+## heroku cheatsheet:
+```
+# run a command on the cloud
+heroku run < my command >
+# enter the psql terminal on the cloud
+heroku pg:psql
+# monitor the output of your server's console
+heroku logs --tail
+# if you need to add something from your .env file
+heroku config:set VAR_NAME=value
+# migrate your db with sequelize (after pushing changes to your migration files)
+heroku run db:migrate 
+# force logging in to heroku
+heroku login
+```
+
 
