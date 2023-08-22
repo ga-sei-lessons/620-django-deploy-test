@@ -12,7 +12,7 @@ once finished.
 * install `pip3 install dj-database-url`
 * setup [parts 1 + 2](https://whitenoise.readthedocs.io/en/stable/django.html)
 * freeze your requirements `pip3 freeze > requirements.txt`
-* touch `Profile` and add the following:
+* touch `Procfile` and add the following:
 ```sh
 web: gunicorn yourappname.wsgi
 ```
