@@ -26,10 +26,6 @@ SECRET_KEY = 're94qkxft_#0mq@1j-#t%g5i9^uvh@7y6z+(i0ku#q66ma*uar'
 if PRODUCTION:
     SECRET_KEY = os.environ["SECRET_KEY"]
 ...
-DEBUG = True
-if PRODUCTION:
-    DEBUG = False
-...
 ALLOWED_HOSTS = ['*',]
 ...
 INSTALLED_APPS = [
