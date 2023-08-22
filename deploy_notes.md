@@ -77,6 +77,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ## heroku cheatsheet:
 
 ```
+# check config vars
+heroku config
+# add a config var
+heroku config:set KEY=value KEY_TWO=value
 # run a command on the cloud
 heroku run < my command >
 # enter the psql terminal on the cloud
